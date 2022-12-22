@@ -4,7 +4,7 @@ const questionRouter = express.Router();
 
 
 questionRouter.get("/",async(req,res)=>{
-    let {difficulty,category,limit} = req.body
+    let {difficulty,category,limit} = req.query
     try {
         let data = await questionsModel.find({difficulty:difficulty,category:category}).limit(limit)
         res.send(data)
